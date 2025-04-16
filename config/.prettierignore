@@ -1,0 +1,18 @@
+# prettier only uses .gitignore if its in the same dir as .prettierrc.json (should also use it if using a custom config npm package)
+# npm
+node_modules/
+package-lock.json
+# run "npm shrinkwrap" instead of using package-lock.json
+
+# Compiled output
+.dist/
+**/.docs/
+
+# Logs and debugging
+npm-debug.log.*
+*.log
+**/.logs/
+
+# Environment variables
+.env
+!.env.example

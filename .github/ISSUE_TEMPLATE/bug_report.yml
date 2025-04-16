@@ -1,0 +1,32 @@
+name: Bug report
+description: Report a issue you may have identified.
+title: "General summary of the issue"
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Describe the issue
+      description: |
+        Provide a summary of the issue and what you expected to happen.
+        Adding reproduction steps, relevant links or reduced test cases would be helpful.
+
+        NOTE: Before submitting, please <a href="https://github.com/nlobby4/flockmod/issues?utf8=%E2%9C%93&q=is%3Aissue">search for duplicate or closed issues</a> and review the <a href="https://github.com/nlobby4/flockmod/blob/main/.github/CONTRIBUTING.md">contributing guidelines</a>.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Where does the issue occur on?
+      multiple: true
+      options:
+        - General (All browsers)
+        - Chrome
+        - Safari
+        - Firefox
+        - Microsoft Edge
+        - Opera
+        - Development Environment
+    validations:
+      required: true

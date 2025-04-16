@@ -1,0 +1,194 @@
+// Universal reset to ensure consistency across browsers
+*,
+*::before,
+*::after {
+   box-sizing: border-box; // Ensures padding and borders are included in element's total width/height
+   margin: 0; // Removes default margins
+   padding: 0; // Removes default padding
+   border: 0; // Removes borders
+   font-size: 100%; // Resets font size to default (from user agent stylesheet)
+   font: inherit; // Inherits font from parent element
+   vertical-align: baseline; // Aligns elements inline with their container's baseline
+}
+
+// Ensures newer HTML5 semantic elements are recognized by browsers and treated as block-level elements
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+   display: block; // Changes these elements' default display to block
+}
+
+// Removes bullets and numbers from lists
+ol,
+ul {
+   list-style: none; // Removes default list styling (bullets, numbers)
+}
+
+// Removes default browser styling for blockquotes and quotes
+blockquote,
+q {
+   quotes: none; // Disables automatic quotation marks
+
+   &::before,
+   &::after {
+      content: ''; // Removes any default quotation marks before/after the content
+   }
+}
+
+// Standard table reset for consistent rendering
+table {
+   border-collapse: collapse; // Ensures adjacent table cells share borders (removes gaps)
+   border-spacing: 0; // Removes extra space between table cells
+}
+
+// Ensures media elements scale properly within their container
+img,
+picture,
+video,
+canvas,
+svg {
+   display: block; // Makes media elements block-level elements for layout consistency
+   max-width: 100%; // Scales media to fit within its container's width
+   height: auto; // Ensures the height scales proportionally to the width
+}
+
+// Ensures form elements inherit typography from parent and resets styling
+input,
+button,
+textarea,
+select {
+   font: inherit; // Inherits the font settings from parent elements
+}
+
+// Ensures text elements can break long words if needed
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   overflow-wrap: break-word; // Breaks long words to avoid overflow issues
+}
+
+// HTML base font settings
+html {
+   width: 100%; // Sets the width to 100% of the viewport
+   min-height: 100%; // Sets the minimum height to 100% of the viewport
+   font-size: 16px; // Sets a base font size for better readability (1rem = 16px)
+   font-family:
+      VarelaRound,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      sans-serif; // Sets the base font family for the entire document
+}
+
+// Body styling for improved rendering and touch optimization
+body {
+   width: 100%; // Sets the width to 100% of the viewport
+   min-height: 100%; // Sets the minimum height to 100% of the viewport
+   line-height: 1.5; // Sets a standard line-height for readability
+   letter-spacing: 0.03rem; // Adds slight letter spacing for better readability
+   -webkit-tap-highlight-color: transparent; // Removes the highlight color on mobile when tapped
+   -webkit-font-smoothing: antialiased; // Optimizes font smoothing in WebKit browsers (like Chrome/Safari)
+   -moz-osx-font-smoothing: grayscale; // Optimizes font smoothing in Firefox on macOS
+   -ms-text-size-adjust: 100%; //prevents IE from resizing text
+   -webkit-text-size-adjust: 100%; //prevents iOS from resizing text
+   text-rendering: optimizeLegibility; // Improves font rendering for better readability
+   touch-action: none; // Disables default touch behavior, preventing zooming or scrolling
+}
+
+// Isolation for root elements (e.g., React/Next.js root elements)
+#root,
+#__next {
+   isolation: isolate; // Creates a new stacking context to prevent z-index issues between elements
+}
+
+// Standard link styling
+a {
+   text-decoration: none; // Removes underlines from links
+   color: inherit; // Inherits the color from the parent element
+
+   &:focus,
+   &:hover {
+      color: inherit; // Ensures no color change on hover/focus
+      text-decoration: none; // Keeps the text-decoration removed on hover/focus
+   }
+}
+
+// Button reset to ensure a clean slate for custom button styles
+button {
+   color: inherit; // Inherits text color
+   background: none; // Removes default background
+   border: none; // Removes default borders
+   padding: 0; // Removes default padding
+   cursor: pointer; // Shows pointer cursor on hover for interactive feedback
+}
+
+// Removes the default focus outline for all focusable elements
+:focus {
+   outline: none; // Removes default outline on focus
+}
+
+// Address element reset for consistent styling
+address {
+   font-style: normal; // Removes the default italic styling from the address element
+}
+
+// Preformatted text styling
+pre {
+   font-family: monospace, monospace; // Uses a monospace font for preformatted text
+}
+
+// Horizontal rule styling
+hr {
+   //! chrome: height is not matching css height
+   border: 0; // Removes the default border
+   height: 1px; // Defines a thin line as the horizontal rule
+   background: currentColor; // Uses the current text color for the horizontal line
+}
+
+// Abbreviation styling for elements with titles
+abbr[title] {
+   border-bottom: none; // Removes default underline with border
+   text-decoration: underline dotted; // Adds a dotted underline
+   cursor: help; // Changes the cursor to indicate additional information is available
+}
+
+// Bold and strong element styling
+b,
+strong {
+   font-weight: bolder; // Ensures the text is bolder than normal
+}
+
+// Code, keyboard, and sample text styling
+code,
+kbd,
+samp {
+   font-family: monospace, monospace; // Uses monospace fonts for these elements
+   font-size: 1em; // Ensures the font size matches the surrounding text
+}
+
+// Default iframe styling for full width/height
+iframe {
+   border: 0; // Removes default border //! should not be required
+   padding: 0; // Removes default padding
+   margin: 0; // Removes default margin
+   overflow: hidden; // Ensures no scroll bars appear inside the iframe
+   display: block; // Makes the iframe a block-level element
+   width: 100%; // Stretches the iframe to 100% of its container width
+   height: 100%; // Stretches the iframe to 100% of its container height
+   background: transparent; // Ensures a transparent background for the iframe
+}

@@ -1,0 +1,16 @@
+# npm
+node_modules/
+package-lock.json
+# run "npm shrinkwrap" instead of using package-lock.json
+
+# Compiled output
+.dist/
+**/.docs/
+
+# Logs and debugging
+*.log
+**/.logs/
+
+# Environment variables
+.env
+!.env.example

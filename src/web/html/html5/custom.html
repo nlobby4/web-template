@@ -1,0 +1,264 @@
+<!-- 
+ARIA (Accessible Rich Internet Applications) provides a way to make web content 
+accessible to screen readers and other assistive technologies
+
+1. ARIA ROLES: Define the purpose of an element.
+   - Example: `role="button"` defines an element as a button, even if it’s a `<div>` or `<span>`.
+
+2. ARIA STATES AND PROPERTIES: Provide additional information about an element's behavior or status
+   - States: Reflect dynamic changes like being "checked" or "expanded."
+     Example: `aria-checked="true"` for a checkbox.
+   - Properties: Define characteristics like relationships or labels.
+     Example: `aria-labelledby="id-of-label"` to link a label to an element.
+
+3. **LANDMARK ROLES**: Help users navigate by marking sections of the page.
+   - Examples:
+     - `role="banner"` for the primary header.
+     - `role="navigation"` for navigation menus.
+     - `role="main"` for the main content area.
+
+4. **KEY ARIA ATTRIBUTES**:
+   - `aria-label`: Provides an accessible name for an element.
+   - `aria-labelledby`: Links an element to an existing visible label.
+   - `aria-describedby`: Links an element to descriptive text, often for additional context.
+   - `aria-hidden`: Indicates whether an element should be hidden from assistive technologies.
+
+====================
+BEST PRACTICES FOR ARIA:
+====================
+1. **Prefer Native HTML**:
+   - Use semantic HTML elements whenever possible (e.g., `<button>` instead of `role="button"`) because native elements are automatically accessible and require less effort to maintain.
+
+2. **Do Not Overuse ARIA**:
+   - Avoid adding ARIA roles or attributes to elements that are already accessible. For example:
+     - Don’t add `role="navigation"` to a `<nav>` element because it already has this role implicitly.
+
+3. **Use ARIA Sparingly on Static Content**:
+   - ARIA is most effective for dynamic, interactive elements. Static content like text or images rarely needs ARIA unless it provides additional context.
+
+4. **Test Accessibility**:
+   - Regularly test your ARIA implementation using screen readers (e.g., NVDA, VoiceOver) and accessibility testing tools (e.g., Axe, Lighthouse).
+
+5. **Avoid Using ARIA for Visual Styling**:
+   - ARIA attributes are for accessibility, not for changing the appearance or layout of elements.
+
+=================
+WHEN TO USE ARIA:
+=================
+- For custom components like dropdown menus, accordions, or sliders where native HTML elements are insufficient.
+- For dynamically updated content, like live regions (`role="alert"`) or progress indicators (`aria-busy`).
+- For linking elements in complex relationships, such as associating tooltips with form inputs.
+
+====================
+LIMITATIONS OF ARIA:
+====================
+1. **No Visual Effect**: ARIA doesn’t change how elements appear on the page. It only improves accessibility for assistive technologies.
+2. **Requires Proper Implementation**: Incorrect ARIA usage can confuse assistive technologies and degrade accessibility.
+3. **Browser and AT Support**: ARIA relies on browsers and assistive technologies to interpret and implement its features correctly. Always test to ensure compatibility.
+
+===========
+RESOURCES:
+===========
+1. ARIA Authoring Practices Guide: https://www.w3.org/TR/wai-aria-practices/
+2. W3C ARIA Specification: https://www.w3.org/TR/wai-aria/
+3. Web Accessibility Initiative (WAI): https://www.w3.org/WAI/
+
+By following ARIA best practices, developers can create inclusive web applications that are accessible to all users, regardless of their abilities.
+-->
+
+<!-- 
+ prevents browser from going into the "quirks" rendering mode
+-->
+<!doctype html>
+
+<!-- 
+ root element for the HTML document
+ lang="en" - language attribute for screen readers and search engines 
+ - implicit ARIA role: "document"
+-->
+<html lang="en">
+   <!-- 
+ contains metadata about the HTML document
+-->
+   <head>
+      <!-- 
+   !look more into meta tags
+    character encoding for the document
+    utf-8 is the only valid character encoding for HTML5
+   -->
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Testing page for HTML5 tags and CSS frameworks" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>HTML5</title>
+      <style></style>
+   </head>
+
+   <!-- 
+ contains the visible content of the HTML document
+ has the following event attributes in js: 
+   onafterprint - after the document is printed
+   onbeforeprint - on document print request
+   onbeforeunload - before the document is unloaded
+   onblur - when the document loses focus
+   onerror - when the document fails to load properly
+   onfocus - when the document gains focus
+   onhashchange - when the document URL hash changes (e.g. https://example.com/#hash)
+   onload - when the document is finished loading
+   onmessage - cross origin communication message
+   onmessageerror - cross origin message cannot be deserialized
+   onoffline - when networkcommunication has failed
+   ononline - when network communication has been restored
+   onpageswap - document navigation, before previous page is unloaded
+   onpagehide - document navigation, before current document is hidden
+   onpagereveal - document navigation, when document is first rendered
+   onpageshow - document navigation, when document is shown
+   onpopstate - document navigation, when navigating the history
+   onresize - when the document is resized
+   onrejectionhandled - js promise is rejected and handled
+   onstorage - when localStorage or sessionStorage is changed
+   onunhandledrejection - js promise is rejected but not handled
+   onunload - when the document is unloaded
+-->
+   <body>
+      <!--
+    itroductory content for the document
+    - implicit ARIA role: "banner" - if it is the first element in the body
+    - implicit ARIA role: "generic" - if nested in other elements
+   -->
+      <header>
+         <!--
+       heading information can be used to create a table of contents by user agents
+       avoid using <h1> for multiple elements, use it only for the main heading
+       do not use to resize text, use `font-size` instead
+       do not skip heading levels, use them in order
+       - implicit ARIA role: "heading"
+      -->
+         <h1>HTML5 Tags</h1>
+
+         <!--
+       major block of navigation links 
+       - implicit ARIA role: "navigation"
+       ARIA use: 
+       incase of multiple nav elements, 
+       use "aria-labelledby" to describe the navigation
+      -->
+         <nav aria-labelledby="main-navigation-title">
+            <ul>
+               <li>
+                  <a href="#text">Text</a>
+                  <ul>
+                     <li><a href="#text__headings">Headings</a></li>
+                     <li><a href="#text__paragraphs">Paragraphs</a></li>
+                     <li><a href="#text__lists">Lists</a></li>
+                     <li><a href="#text__blockquotes">Blockquotes</a></li>
+                     <li><a href="#text__details">Details / Summary</a></li>
+                     <li><a href="#text__address">Address</a></li>
+                     <li><a href="#text__hr">Horizontal rules</a></li>
+                     <li><a href="#text__tables">Tabular data</a></li>
+                     <li><a href="#text__code">Code</a></li>
+                     <li><a href="#text__inline">Inline elements</a></li>
+                     <li><a href="#text__comments">HTML Comments</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#embedded">Embedded content</a>
+                  <ul>
+                     <li><a href="#embedded__images">Images</a></li>
+                     <li><a href="#embedded__bgimages">Background images</a></li>
+                     <li><a href="#embedded__audio">Audio</a></li>
+                     <li><a href="#embedded__video">Video</a></li>
+                     <li><a href="#embedded__canvas">Canvas</a></li>
+                     <li><a href="#embedded__meter">Meter</a></li>
+                     <li><a href="#embedded__progress">Progress</a></li>
+                     <li><a href="#embedded__svg">Inline SVG</a></li>
+                     <li><a href="#embedded__iframe">IFrames</a></li>
+                     <li><a href="#embedded__embed">Embed</a></li>
+                     <li><a href="#embedded__object">Object</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#forms">Form elements</a>
+                  <ul>
+                     <li><a href="#forms__input">Input fields</a></li>
+                     <li><a href="#forms__select">Select menus</a></li>
+                     <li><a href="#forms__checkbox">Checkboxes</a></li>
+                     <li><a href="#forms__radio">Radio buttons</a></li>
+                     <li><a href="#forms__textareas">Textareas</a></li>
+                     <li><a href="#forms__html5">HTML5 inputs</a></li>
+                     <li><a href="#forms__action">Action buttons</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </nav>
+      </header>
+
+      <h2 class="description"><code>html</code></h2>
+      <h3 class="should"></h3>
+      <div class="result">abcdefghijklmnopqrstuvwxyz</div>
+
+      <aside>
+         <nav aria-labelledby="secondary-navigation-title">
+            <ul>
+               <li><a href="#privacy">Privacy Policy</a></li>
+               <li><a href="#terms">Terms of Service</a></li>
+               <li><a href="#help">Help</a></li>
+            </ul>
+         </nav>
+      </aside>
+
+      <main>
+         <!-- 
+       ordered list
+       permitted child elements: li, script, template
+       possible attributes: reversed, start, type
+       possible types: 1, A, a, I, i
+       - implicit ARIA role: "list"
+      -->
+         <ol>
+            <li>
+               Decimal numbers (default type: <code>1</code>):
+               <ol type="1">
+                  <li>first item</li>
+                  <li>second item</li>
+                  <li>third item</li>
+               </ol>
+            </li>
+            <li>
+               Lowercase letters (type: <code>a</code>) (attr: <code>start="3"</code>):
+               <ol type="a" start="3">
+                  <li>first item</li>
+                  <li>second item</li>
+                  <li>third item</li>
+               </ol>
+            </li>
+            <li>
+               Uppercase letters (type: <code>A</code>) (attr: <code>reveresed</code>):
+               <ol type="A" reversed>
+                  <li>first item</li>
+                  <li>second item</li>
+                  <li>third item</li>
+               </ol>
+            </li>
+            <li>
+               Lowercase Roman numerals (type: <code>i</code>):
+               <ol type="i">
+                  <li>first item</li>
+                  <li>second item</li>
+                  <li>third item</li>
+               </ol>
+            </li>
+            <li>
+               Uppercase Roman numerals (type: <code>I</code>):
+               <ol type="I">
+                  <li>first item</li>
+                  <li>second item</li>
+                  <li>third item</li>
+               </ol>
+            </li>
+         </ol>
+      </main>
+
+      <footer role="contentinfo"></footer>
+   </body>
+</html>

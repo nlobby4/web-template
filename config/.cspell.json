@@ -1,0 +1,9 @@
+{
+  "version": "0.2",
+  "words": [],
+  "language": "en,en-GB,en-US",
+  "allowCompoundWords": true,
+  "ignoreRegExpList": ["\\_\\w+", "\\#\\w+"],
+  "ignorePaths": [".cspell.json"],
+  "useGitignore": true
+}

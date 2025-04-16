@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Template</title>
+
+      <!-- Standard Favicon -->
+      <link rel="icon" href="/favicon-16x16.ico" sizes="16x16" type="image/x-icon" />
+      <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+      <link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png" />
+      <link rel="icon" href="/favicon-64x64.png" sizes="64x64" type="image/png" />
+
+      <!-- For older iPhones -->
+      <link rel="apple-touch-icon" href="/favicon-120x120.png" sizes="120x120" />
+      <!-- For iPad Retina -->
+      <link rel="apple-touch-icon" href="/favicon-152x152.png" sizes="152x152" />
+      <!-- Apple Touch Icon (iOS) -->
+      <link rel="apple-touch-icon" href="/favicon-180x180.png" sizes="180x180" />
+
+      <!-- Android & PWA -->
+      <link rel="icon" href="/favicon-192x192.png" sizes="192x192" type="image/png" />
+      <link rel="icon" href="/favicon-512x512.png" sizes="512x512" type="image/png" />
+
+      <link rel="canonical" href="https://flockmod.com" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Realtime multi-user drawing application. Draw with your friends online!" />
+      <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self';">-->
+      <meta http-equiv="cache-control" content="public, max-age=31536000, immutable" />
+      <meta http-equiv="expires" content="Sun, 1 Jan 2040 00:13:37 GMT" />
+
+      <!-- SEO -->
+      <meta name="robots" content="index, follow" />
+
+      <!-- Twitter Card tags -->
+      <meta name="twitter:title" content="FlockMod" />
+      <meta name="twitter:description" content="Realtime multi-user drawing application. Draw with your friends online!" />
+      <meta name="twitter:image" content="https://flockmod.com/img/sitethumb.png" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content="@flockmod" />
+      <meta name="twitter:site" content="@flockmod" />
+
+      <!-- Open Graph Tags -->
+      <meta property="og:title" content="FlockMod" />
+      <meta property="og:description" content="Realtime multi-user drawing application. Draw with your friends online!" />
+      <meta property="og:image" content="https://flockmod.com/img/sitethumb.png" />
+      <meta property="og:url" content="https://flockmod.com/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="en_US" />
+      <!--
+  <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "FlockMod",
+          "description": "Realtime multi-user drawing application. Draw with your friends online!",
+          "url": "https://flockmod.com",
+          "applicationCategory": "SocialNetworkingApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "creator": {
+            "@type": "Person",
+            "name": "auto"
+          }
+        }
+  </script>-->
+   </head>
+
+   <body>
+      <div id="backgroundContainer"></div>
+      <nav id="navContainer"></nav>
+      <main>
+         <div id="canvasContainer"></div>
+         <div id="dialogContainer" class="dialog-locked"></div>
+         <!-- add lock class in js dynamically instead -->
+         <div id="loaderContainer"></div>
+         <div id="alertContainer"></div>
+         <div id="fileImportContainer"></div>
+      </main>
+      <footer id="footerContainer"></footer>
+      <div id="toolbarContainer"></div>
+   </body>
+</html>

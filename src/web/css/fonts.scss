@@ -1,0 +1,30 @@
+@font-face {
+   font-family: 'VarelaRound';
+   font-style: normal;
+   font-display: optional;
+   font-weight: 400;
+   src:
+      url(../assets/fonts/VarelaRound-Regular.woff2) format('woff2'),
+      url(../assets/fonts/VarelaRound-Regular.woff) format('woff'),
+      url(../assets/fonts/VarelaRound-Regular.ttf) format('truetype');
+}
+
+//! outline makes it look offcenter
+@font-face {
+   font-family: 'FankyBubble-Regular';
+   font-style: normal;
+   font-display: swap;
+   font-weight: 800;
+   src: url(../assets/fonts/FankyBubble-Regular.otf) format('opentype');
+}
+
+@font-face {
+   //makes it appear like the text is offcenter
+   font-family: 'FankyBubble-Extrude';
+   font-style: normal;
+   font-display: swap;
+   font-weight: 800;
+   src: url(../assets/fonts/FankyBubble-Extrude.otf) format('opentype');
+}
+
+//<link rel="preload" href="./assets/fonts/VarelaRound-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">

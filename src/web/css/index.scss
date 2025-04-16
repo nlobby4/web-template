@@ -1,0 +1,129 @@
+:root {
+   --cover: #1a1a1a;
+   --text-color: #e6e6e6;
+   --text-blur: #909090;
+   --splash1: #ff881e;
+   --splash2: #1e95ff;
+
+   --info: #5aa4e1;
+   --warning: #fdc05f;
+   --success: #a2df66;
+   --error: #fb5555;
+   --global: #ec70ff;
+}
+
+[data-theme='dark'] {
+   --base: #2d2a2e;
+   --dark: #19181a;
+   --dark-accent: #221f22;
+   --dark-outline: #403e41;
+   --dark-highlight: #707070;
+   --light: #f0f0f0;
+   --light-accent: #403e41;
+   --light-highlight: #929292;
+   --light-outline: #535254;
+}
+
+[data-theme='light'] {
+   --base: #c1c3c9;
+   --dark: #d9dbe1;
+   --dark-accent: #c1c3c9;
+   --dark-outline: #403e41;
+   --dark-highlight: #707070;
+   --light: #f0f0f0;
+   --light-accent: #403e41;
+   --light-highlight: #929292;
+   --light-outline: #535254;
+}
+
+[data-theme='classic'] {
+   --base: #243d56;
+   --dark: #425b7c;
+   --dark-accent: #09213a;
+   --dark-outline: #403e41;
+   --dark-highlight: #929292;
+   --light: #f0f0f0;
+   --light-accent: #403e41;
+   --light-highlight: #929292;
+   --light-outline: #535254;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-corner {
+   display: none !important;
+   width: 0 !important;
+   height: 0 !important;
+   -webkit-appearance: none !important;
+   background: transparent !important;
+   appearance: none !important;
+}
+
+html {
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -o-user-select: none;
+}
+
+body {
+   overflow: hidden;
+   background-color: var(--base, var(--cover)); //possibly taken care of by manidfest.json?
+   color: var(--text-color);
+}
+
+#splashScreen {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   background-color: var(--cover);
+
+   .description {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      bottom: 0;
+      left: 10px;
+      right: 10px;
+      font-family: Consolas, monospace;
+      color: var(--text-blur);
+      white-space: nowrap;
+
+      .info {
+         flex: 1;
+         padding: 0 10px;
+      }
+   }
+
+   .header {
+      display: flex;
+      align-self: center;
+      font-size: clamp(30px, 12vw, 100px);
+      letter-spacing: 0px;
+      white-space: nowrap;
+
+      .border {
+         position: relative;
+         font-family: FankyBubble-Extrude, sans-serif;
+         color: var(--text-color);
+      }
+
+      .progress {
+         position: absolute;
+         font-family: FankyBubble-Regular, sans-serif;
+         clip-path: inset(0 100% 0 0);
+         transition: clip-path 0.3s linear;
+
+         span {
+            color: var(--splash1);
+
+            span {
+               color: var(--splash2);
+            }
+         }
+      }
+   }
+}
