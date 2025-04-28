@@ -22,6 +22,11 @@
   "directories": {
     "man": "src/cli/man"
   },
+  "man": [
+    "src/cli/man/man.1",
+    "src/cli/man/man-config.5",
+    "src/cli/man/man-serve.8"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/user/project.git"
@@ -32,17 +37,13 @@
     "start": "node src/cli/cli.js",
     "build": "echo \"Error: no build specified\" && exit 1",
     "dev": "echo \"Error: no dev specified\" && exit 1",
-    "server": "node src/server/server.js",
+    "server": "node src/cli/bin.js",
     "docs-cli": "jsdoc --package ./package.json --configure src/cli/.docs/jsdoc-cli.json --verbose",
     "docs-web": "jsdoc --package ./package.json --configure src/web/.docs/jsdoc-web.json --verbose",
     "docs": "npm run docs-cli && npm run docs-web",
     "lint": "eslint --config config/eslint.config.js .",
     "lint:fix": "eslint --config config/eslint.config.js --fix .",
     "debug": "cross-env-shell 'PORT=$npm_package_config_port && echo $PORT'",
-    "localhost": "cross-env-shell 'PORT=$npm_package_config_port npx http-server ./dist/index-4e6b8889cddbb13d3d90.html --port $PORT'",
-    "ngrok": "cross-env-shell 'PORT=$npm_package_config_port ngrok http $PORT'",
-    "serve": "npm run localhost && npm run ngrok",
-    "startHost": "http-server ./.dist -o ./index-4e6b8889cddbb13d3d90.html -p 8080",
     "semver": "npm version <(major, minor, patch)>",
     "depricate": "npm deprecate <package-name> <message>",
     "dist-tag": "",
@@ -53,7 +54,7 @@
     "shrinkwarp": "npm shrinkwrap"
   },
   "config": {
-    "port": "8080"
+    "PORT": 8080
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^8.17.0",
@@ -62,11 +63,14 @@
     "@sphoon/prettier-config": "^1.1.1",
     "clean-jsdoc-theme": "^4.3.0",
     "cspell": "^8.17.0",
+    "dotenv": "^16.5.0",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "http-server": "^14.1.1",
     "jsdoc": "^4.0.4",
+    "ngrok": "^5.0.0-beta.2",
     "prettier": "3.4.2",
+    "qrcode-terminal": "^0.12.0",
     "stylelint": "^16.12.0",
     "stylelint-config-standard": "^36.0.1"
   },

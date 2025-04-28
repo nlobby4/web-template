@@ -1,5 +1,6 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-issue-forms.json
 name: Request a feature
-description: Suggest a new features to include.
+description: Suggest a new feature to include.
 title: "Suggest a new feature"
 labels: [enhancement]
 body:

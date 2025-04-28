@@ -1,0 +1,24 @@
+# This file tells GitHub who owns what parts of the codebase.
+# These users or teams will be automatically requested for reviews on PRs affecting these paths.
+
+# Global owner (fallback for everything not specified below)
+*     @exquz3me
+
+# Specific file owners
+README.md          @docs-team
+LICENSE.md         @legal-team
+
+# Directory owners
+/docs/             @exquz3me @docs-team
+/src/              @dev-team
+/src/utils/        @exquz3me @helpers
+
+# Owner for JavaScript files in root
+/*.js              @frontend-lead
+
+# Test ownership
+/tests/            @qa-team
+/tests/e2e/        @exquz3me @qa-lead
+
+# Private files
+/secrets/          @security-team

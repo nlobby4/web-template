@@ -2,14 +2,13 @@
   // See https://go.microsoft.com/fwlink/?LinkId=733558
   // for the documentation about the tasks.json format
   // Using the Tasks extension by actboy168
-  // Icons created using $(icon)
   // Valid icon names are found at https://primer.style/foundations/icons
   "version": "2.0.0",
   "tasks": [
     {
       "label": "serve",
       "type": "shell",
-      "command": "npm run serve",
+      "command": "npm run server",
       "options": {
         "statusbar": {
           "label": "$(cloud) Host",

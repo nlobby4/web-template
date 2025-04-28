@@ -1,27 +1,21 @@
 #!/usr/bin/env node
 
-import config from "./config.json" with { type: "json" };
-globalThis.cli = config;
-let test = 1;
-test = "2";
-console.log(test);
+import { spawn } from "child_process";
+import { fileURLToPath } from "url";
+import path from "path";
 
-const testString = "test";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const httpPath = path.join(__dirname, "network/n-http.js");
+const ingressPath = path.join(__dirname, "managers/m-ingress.js");
 
-//make badges on readme link to documentations
-//fix eslint globalThis
-//make eslint check types
-//add --help on windows
-//add --version on windows
-//check if man works on linux
+function run(command, args, label) {
+  const proc = spawn(command, args, { stdio: "inherit" });
+  proc.on("close", code => {
+    console.log(`${label} exited with code ${code}`);
+  });
+}
 
-//jest tests
-//playwright
-
-console.log(cli.example);
-
-const exampleObject = {
-  test: "test",
-  test2: "test2",
-  test3: "test3",
-};
+// Start both
+run("node", [httpPath], "[Erebus] HTTP");
+run("node", [ingressPath], "[Erebus] Ingress");

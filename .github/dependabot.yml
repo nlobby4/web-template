@@ -1,17 +1,18 @@
+# yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
 # Dependabot opens PRs for updating dependencies
 # https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/"
-    schedule:
-      interval: monthly
-    versioning-strategy: increase
-  - package-ecosystem: npm
     directory: "/src/"
     schedule:
       interval: monthly
     versioning-strategy: increase
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+    security-updates-only: true
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
