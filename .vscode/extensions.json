@@ -4,6 +4,9 @@
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "hediet.vscode-drawio",
-    "actboy168.tasks"
+    "actboy168.tasks",
+    "github.vscode-codeql",
+    "bierner.github-markdown-preview",
+    "yzhang.markdown-all-in-one",
   ]
 }

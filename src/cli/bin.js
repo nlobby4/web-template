@@ -1,5 +1,16 @@
 #!/usr/bin/env node
 
+/*
+pre requisites
+
+ngrok
+https://ngrok.com/
+ngrok config add-authtoken yourtoken   -> share authtoken using secrets?
+ngrok http 8080
+http://127.0.0.1:4040/inspect/http
+
+*/
+
 import { spawn } from "child_process";
 import { fileURLToPath } from "url";
 import path from "path";
