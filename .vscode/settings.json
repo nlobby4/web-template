@@ -28,6 +28,21 @@
 
   // Files
   "files.associations": {},
-  "json.schemas": [],
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/.myconfig"
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the entry"
+          }
+        }
+      }
+    }
+  ],
   "yaml.schemas": {},
 }
